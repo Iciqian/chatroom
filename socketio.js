@@ -1,6 +1,7 @@
 var socketio = {};  
 var socket_io = require('socket.io');  
 var users=[];
+
 //获取io  
   socketio.getSocketio = function(server){  
     var io = socket_io.listen(server);  
@@ -19,8 +20,14 @@ var users=[];
 		  });
 
 		  socket.on('disconnect',function(){
-		  	users.splice(socket.userIndex,1);
-		  	socket.broadcast.emit('system',socket.name,users.length,users,'logout');
+		  	if (socket.name) {
+			  	users.splice(users.indexOf(socket.name),1);
+			  	socket.broadcast.emit('system',socket.name,users.length,users,'logout');
+		  	}
+		  })
+
+		  socket.on('sendMsg',function(name,msg){
+		  	io.sockets.emit('sendSuccess',name,socket.name,msg);
 		  })
 
 

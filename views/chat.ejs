@@ -9,39 +9,51 @@
   <body>
   	<div class="container-fluid" id="cover">
   		<div id="prompt">
-  			<p>给自己起一个名字：</p>
+  			<p>给自己起一个名字吧，长度<=10：</p>
+        <form>
   			<div class="input-group">
 	  			<input type="text" name="name" class="form-control" id="name">
 	  			<span class="input-group-btn">
-	  				<button id="cfmBtn" class="btn btn-default">起好咯</button>
+	  				<button type="submit" id="cfmBtn" class="btn btn-default">起好咯</button>
 	  			</span>
+        <form>
   		</div>
-      <p id="nameexisted">哎呀，昵称已存在，换一个吧:-D</p>
-        </div>
+      <p class="nametips" id="nameexisted">哎呀，昵称已存在，换一个吧:-D</p>
+      <p class="nametips" id="nameempty">昵称不能为空哦~</p>
+      <p class="nametips" id="namelong">这名字长度要上天...</p>
+      </div>
+
   	</div>
     <div class="container-fluid" id="container">
     	<div class="row">
     		<div class="col-md-offset-2 col-md-8" id="chatroom">
     			<div id="header"><h4 class="text-center" id="title">CHATROOM</h4></div>
-
     			<div id="ground">
-            <div id="system" class="text-center"></div>
-    				<div id="screen"></div>
+              <p id="system"></p>
+            <div class="row">
+    				  <div class="col-md-offset-2 col-md-6 col-sm-offset-1 col-sm-6 col-xs-offset-1 col-xs-9" id="screen">
+                  <ul id="msg-list"></ul>
+              </div>
+            </div>
     				<div id="message">
-    					<div class="input-group" id="iptgroup">
-    						<input type="text" name="msg" id="msg" class="form-control">
-    						<span class="input-group-btn">
-    							<button type="submit" class="btn btn-default" id="sendBtn">GO</button>
-    						</span>
-    					</div>
+              <form>
+    					  <div class="input-group" id="iptgroup">
+      						<input type="text" name="msg" id="msg" class="form-control">
+      						<span class="input-group-btn">
+      						  <button type="submit" class="btn btn-default" id="sendBtn">GO</button>
+      						</span>
+    					   </div>
+              </form>
     				</div>
     				<div id="users">
-    					<a href="javascript:void(0);" id="users_slide">
+    					<a href="javascript:void(0);" id="users_slider">
     						在线列表
     					</a>
-    					<ul id="users-list">
-                
-              </ul>
+              <div id="users-box"><h4 class="text-center">Online List</h4>
+              <span class="spacer"></span>
+      					<ul id="users-list">
+                </ul>
+              </div>
     				</div>
 					</div>
 				</div>
