@@ -1,7 +1,18 @@
+
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 2em; height: 2em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.25em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+}
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #e7e7e7;
-
 }
 a {
   color: #fff;
@@ -51,6 +62,7 @@ a {
 #ground{
 	position: relative;
 	height: 558px;
+	margin: 0;
 	overflow: hidden;
 }
 #title{
@@ -66,7 +78,6 @@ a {
 .msg-text{
 	word-wrap:break-word;
 }
-
 #system{
 	display: none;
 	width:100%;
@@ -85,36 +96,44 @@ a {
 .spacer{
 	display: block;
 	width: 120px;
-	height: 2px;
+	height: 1px;
 	margin: 0 auto 10px;
 	background-color: #fff;
 }
 #screen{
 	height: 420px;	
-	margin-top:30px;
 	overflow: hidden;
 	padding:0;
 }
 #msg-list{
-	width:100%;
-	margin-left: 18px;
-	height: 420px;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 80px;
+	padding-right: 30px;
+	top:40px;
+	left:0;
+	height: 410px;
 	list-style-type: none;
 	overflow: scroll;
-	padding: 0 18px 0 0;
 }
 #message{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 70px;
-	background-color:#DAA520 ;
+	background-color:#DAA520;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-#iptgroup{
+#message-box{
 	margin: 18px auto;
 	width:80%;
+}
+#emoji{
+	float: left;
+	margin:3px 10px 0 0;
+	cursor:pointer;
 }
 #msg{
 	border:1px solid #ccc ;
@@ -122,11 +141,8 @@ a {
 	box-shadow: none;
 }
 #users{
-	position: absolute;
-	right:0px;
-	top: 0;
-	height: 524px;
-	width: 270px;
+	height: 488px;
+	padding: 0;
 }
 #users_slider{
 	display: none;
@@ -145,8 +161,7 @@ a {
 	line-height: 30px;
 }
 #users-box{
-	width: 270px;
-	height: 488px;
+	height: 100%;
 	background-color: #B8860B ;
 	color:#fff;
 }
@@ -158,11 +173,17 @@ a {
 	overflow: scroll;
 	list-style-type: none;
 }
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1000px){
+	#screen{
+		width:100%;
+	}
 	#users_slider{
 		display: block;
 	}
 	#users{
+		position: absolute;
+		list-style-type: none;
+		padding: 0;
 		width: 300px;
 		right:-270px;
 	}
@@ -170,4 +191,8 @@ a {
 		margin-left: 30px;
 	}
 }
-
+@media screen and (min-width: 1024px){
+	#users{
+		position: static;
+	}
+}
