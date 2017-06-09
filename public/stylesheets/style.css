@@ -1,5 +1,5 @@
 
-.icon {
+.iconemoji{
   /* 通过设置 font-size 来改变图标大小 */
   width: 2em; height: 2em;
   /* 图标和文字相邻时，垂直对齐 */
@@ -54,7 +54,7 @@ a {
 }
 #chatroom{
 	height: 600px;
-	border:1px solid #B8860B ;
+	border:1px solid #B8860B;
 	border-radius:5px;
 	padding: 0;
 	background-color: #fff;
@@ -77,6 +77,9 @@ a {
 }
 .msg-text{
 	word-wrap:break-word;
+}
+.msg-emoji{
+	margin:0 3px;
 }
 #system{
 	display: none;
@@ -101,13 +104,14 @@ a {
 	background-color: #fff;
 }
 #screen{
-	height: 420px;	
+	height: 488px;	
 	overflow: hidden;
-	padding:0;
+	padding-bottom:30px;
+	background-color: #FFF8D7;
 }
 #msg-list{
 	position: absolute;
-	width: 100%;
+	width: 90%;
 	box-sizing: border-box;
 	padding-left: 80px;
 	padding-right: 30px;
@@ -130,21 +134,42 @@ a {
 	margin: 18px auto;
 	width:80%;
 }
+
 #emoji{
 	float: left;
 	margin:3px 10px 0 0;
 	cursor:pointer;
 }
+#emoji-box{
+	display: none;
+	position: absolute;
+	bottom: 70px;
+	left:0;
+	margin:0;
+	padding:10px;
+	width: 250px;
+	height: 200px;
+	list-style-type: none;
+	background-color:#DAA520; 
+	border-top-right-radius: 5px;
+}
+#emoji-box li{
+	float: left;
+	margin:5px;
+	cursor: pointer;
+}
 #msg{
 	border:1px solid #ccc ;
 	outline: none;
 	box-shadow: none;
+	background-color: #FFF8D7
 }
 #users{
+	position: relative;
 	height: 488px;
 	padding: 0;
 }
-#users_slider{
+#users-slider{
 	display: none;
 	width: 30px;
 	height: 100px;
@@ -154,11 +179,13 @@ a {
 	border-bottom-left-radius: 5px;
 	top:50%;
 	margin-top: -80px;
-	left:0;
+	left:-30px;
 	writing-mode: vertical-lr;
 	text-decoration: none;
 	text-align: center;
 	line-height: 30px;
+	color:#fff;
+	cursor: pointer;
 }
 #users-box{
 	height: 100%;
@@ -177,18 +204,15 @@ a {
 	#screen{
 		width:100%;
 	}
-	#users_slider{
+	#users-slider{
 		display: block;
 	}
 	#users{
 		position: absolute;
 		list-style-type: none;
 		padding: 0;
-		width: 300px;
+		width: 270px;
 		right:-270px;
-	}
-	#users-box{
-		margin-left: 30px;
 	}
 }
 @media screen and (min-width: 1024px){

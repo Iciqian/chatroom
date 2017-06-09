@@ -35,17 +35,16 @@
           <div class="row" id="ground">
 
            <!--消息界面-->
-  				  <div class="col-md-8 col-sm-8 col-xs-10" id="screen">
-                <p id="system"></p>
+  				  <div class="col-md-9 col-sm-8 col-xs-10" id="screen">
+                <p id="system" class="text-center"></p>
                 <ul id="msg-list"></ul>
-                
             </div>
 
             <!--在线列表-->
-            <div id="users" class="col-md-4 col-sm-5">
-              <a href="javascript:void(0);" id="users_slider">
+            <div id="users" class="col-md-3 col-sm-4">
+              <span id="users-slider">
                 在线列表
-              </a>
+              </span>
               <div id="users-box"><h4 class="text-center">Online List</h4>
                 <span class="spacer"></span>
                 <ul id="users-list">
@@ -56,13 +55,105 @@
 
           <!--输入区-->
   				<div id="message">
+
             <div id="message-box">
               <span id="emoji">
-                <svg class="icon" aria-hidden="true">
+                <svg class="iconemoji" aria-hidden="true">
                   <use xlink:href="#icon-biaoqing"></use>
                 </svg>
               </span>
-           
+              <ul id="emoji-box">
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use  class="emoji-item" xlink:href="#icon--astonished"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use  class="emoji-item" xlink:href="#icon--angel"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use  class="emoji-item" xlink:href="#icon--happy-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use  class="emoji-item" xlink:href="#icon--happy"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use  class="emoji-item" xlink:href="#icon--happy-1"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--joy"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--confused"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--angry"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--cool-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--dizzy"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--cry"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--devil"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--flushed"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--kiss-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--sad-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--smile"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--sleeping"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--smiling-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--surprised"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--thinking"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--unamused"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--vomiting-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--mute"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--scared-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--secret"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--sweat"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--smiling"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--smiling-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--tongue-"></use>
+                </svg></li>
+                <li><svg class="iconemoji" aria-hidden="true">
+                  <use class="emoji-item" xlink:href="#icon--sick"></use>
+                </svg></li>
+              </ul>
               <form id="sendform">
     					  <div class="input-group" id="iptgroup">
       						<input type="text" name="msg" id="msg" class="form-control">
@@ -72,6 +163,7 @@
     					   </div>
               </form>
             </div>
+
     			</div>
     				
 			  </div>
@@ -81,6 +173,7 @@
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
    	<script src="/javascripts/chat.js"></script>
-    <script src="/javascripts/iconfont.js"></script>
+    <script src="/javascripts/iconemoji.js"></script>
+
   </body>
 </html>
