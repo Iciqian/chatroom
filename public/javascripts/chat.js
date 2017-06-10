@@ -8,10 +8,13 @@ function ChatRoom(){
 };
 
 ChatRoom.prototype = {
+	//初始化
 	init:function(){
 		var that = this;
+		//建立socket连接
 		this.socket = io.connect();
 
+		//处理socket连接事件
 		this.socket.on('connect',function(){
 			$('#cover').show();
 			$('#name').focus();
@@ -33,11 +36,13 @@ ChatRoom.prototype = {
 			});
 		});
 
+		//处理用户名已存在事件
 		this.socket.on('nameExisted',function(){
 			$('#name').focus();
 			$('#nameexisted').show().delay(2000).slideUp();
 		});
 
+		//处理登陆成功事件
 		this.socket.on('loginSuccess',function(name,userCount,users){
 			var msg;
 			$('#cover').hide();
@@ -50,7 +55,6 @@ ChatRoom.prototype = {
 			})
 			$('#users-list').html(list);
 			var msg = $('#msg').val();
-
 			$('#msg').keypress(function(e){
 				if (e.keyCode == 13) {
 					e.preventDefault();
@@ -58,7 +62,6 @@ ChatRoom.prototype = {
 					that.sendmsg(msg,name);
 				}
 			});
-
 			$('#sendBtn').click(function(e){
 				msg = $('#msg').val();
 				e.preventDefault();
@@ -66,6 +69,7 @@ ChatRoom.prototype = {
 			})
 		});
 
+		//处理系统消息事件
 		this.socket.on('system',function(name,userCount,users,type){
 			if (type == 'login') {
 				var welcome = name + ' 已进入聊天室--当前在线人数:' + userCount;
@@ -85,11 +89,13 @@ ChatRoom.prototype = {
 			}
 		});
 
+		//处理消息发送成功事件
 		this.socket.on('sendSuccess',function(sendname,myname,msg){
 			that.msg(sendname,myname,msg);
 			$('#emoji-box').hide();
 		});
 
+		//点击在线列表按钮，在线列表展示动效，表情包收回
 		var flag = false;
 		$('#users-slider').click(function(e){
 			if (flag==false) {
@@ -101,13 +107,8 @@ ChatRoom.prototype = {
 			}
 			$('#emoji-box').hide();
 		});
-		$('#emoji').click(function(){
-			$('#emoji-box').toggle();
-			if (flag) {
-				$('#users').animate({right:'-270px'});
-				flag = !flag;
-			}
-		});
+
+		//点击消息界面，在线列表和表情包收回
 		$('#screen').click(function(){
 			$('#emoji-box').hide();
 			if (flag) {
@@ -116,6 +117,14 @@ ChatRoom.prototype = {
 			}
 		});
 
+		//点击表情输入按钮，表情包呈现toggle效果，在线列表收回
+		$('#emoji').click(function(){
+			$('#emoji-box').toggle();
+			if (flag) {
+				$('#users').animate({right:'-270px'});
+				flag = !flag;
+			}
+		});
 		$('#emoji-box').on('click','.emoji-item',function(e){
 			var target = $(e.target);
 			var emoji = $('.emoji-item');
@@ -127,6 +136,8 @@ ChatRoom.prototype = {
 			}
 		})
 	},
+
+	//发送消息
 	sendmsg:function(msg,name){
 		if ($.trim(msg) != ''){
 			this.socket.emit('sendMsg',name,msg);
@@ -135,6 +146,8 @@ ChatRoom.prototype = {
 			$('#msg').val('').focus();
 		}	
 	},
+
+	//显示消息，自动滚动到底部
 	msg:function(sendname,myname,msg){
 		var time = new Date();
 		time = time.toTimeString().substr(0,8);
@@ -150,6 +163,7 @@ ChatRoom.prototype = {
 		$('#msg-list').scrollTop(st);	
 	},
 
+	//显示可爱的emoji
 	showEmoji:function(msg){
 		var match,result = msg;
 		var reg = /\[emoji:\d+\]/g;

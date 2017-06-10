@@ -1,22 +1,18 @@
 
 .iconemoji{
-  /* 通过设置 font-size 来改变图标大小 */
   width: 2em; height: 2em;
-  /* 图标和文字相邻时，垂直对齐 */
   vertical-align: -0.25em;
-  /* 通过设置 color 来改变 SVG 的颜色/fill */
   fill: currentColor;
-  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
-     normalize.css 中也包含这行 */
   overflow: hidden;
 }
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #e7e7e7;
 }
-a {
-  color: #fff;
+ul{
+	list-style-type: none;
 }
+/*-- start 遮罩 --*/
 #cover{
 	display: none;
 	position: absolute;
@@ -38,7 +34,7 @@ a {
 	color: #fff;
 	text-align: center;
 }
-#nameempty,#nameexisted,#namelong{
+.nametips{
 	display: none;
 	margin-top: 10px;
 }
@@ -49,6 +45,9 @@ a {
 #cfmBtn{
 	color: #000;
 }
+/*-- end 遮罩 --*/
+
+/*-- start 界面 --*/
 #container{
 	margin: 5px;
 }
@@ -59,18 +58,56 @@ a {
 	padding: 0;
 	background-color: #fff;
 }
-#ground{
-	position: relative;
-	height: 558px;
-	margin: 0;
-	overflow: hidden;
-}
+
+/*-- 头部 --*/
 #title{
 	height: 40px;
 	margin: 0px;
 	line-height: 40px;
 	background-color: #FFD700 ;
 	border-radius:5px 5px 0 0;
+}
+
+/*-- start 主界面 --*/
+#ground{
+	position: relative;
+	height: 558px;
+	margin: 0;
+	overflow: hidden;
+}
+
+/*-- 消息界面 --*/
+#screen{
+	height: 488px;	
+	overflow: hidden;
+	padding-bottom:30px;
+	background-color:#FFF5EE;
+}
+#system{
+	display: none;
+	width:100%;
+	padding-left:15px;
+	border-radius: 0 0 5px 5px;
+	background-color: #DAA520;
+	color: #fff;
+	height: 30px;
+	position: absolute;
+	top:0;
+	left:0;
+	line-height: 30px;
+	height: 30px;
+}
+
+#msg-list{
+	position: absolute;
+	width: 90%;
+	padding-left: 80px;
+	padding-right: 30px;
+	top:40px;
+	left:0;
+	height: 410px;
+	list-style-type: none;
+	overflow: scroll;
 }
 .msg-title{
 	color:#aaa;
@@ -81,60 +118,23 @@ a {
 .msg-emoji{
 	margin:0 3px;
 }
-#system{
-	display: none;
-	width:100%;
-	padding-left:15px;
-	border-bottom-left-radius:5px;
-	border-bottom-right-radius:5px;
-	background-color: #DAA520;
-	color: #fff;
-	height: 30px;
-	position: absolute;
-	top:0;
-	left:0;
-	line-height: 30px;
-	height: 30px;
-}
-.spacer{
-	display: block;
-	width: 120px;
-	height: 1px;
-	margin: 0 auto 10px;
-	background-color: #fff;
-}
-#screen{
-	height: 488px;	
-	overflow: hidden;
-	padding-bottom:30px;
-	background-color: #FFF8D7;
-}
-#msg-list{
-	position: absolute;
-	width: 90%;
-	box-sizing: border-box;
-	padding-left: 80px;
-	padding-right: 30px;
-	top:40px;
-	left:0;
-	height: 410px;
-	list-style-type: none;
-	overflow: scroll;
-}
+
+/*-- 输入区 --*/
 #message{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 70px;
 	background-color:#DAA520;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-radius: 0 0 5px 5px; 
 }
 #message-box{
 	margin: 18px auto;
 	width:80%;
 }
-
+#sendBtn{
+	background-color:#FFD700; 
+}
 #emoji{
 	float: left;
 	margin:3px 10px 0 0;
@@ -151,7 +151,7 @@ a {
 	height: 200px;
 	list-style-type: none;
 	background-color:#DAA520; 
-	border-top-right-radius: 5px;
+	border-radius: 0 5px 0 0
 }
 #emoji-box li{
 	float: left;
@@ -159,24 +159,32 @@ a {
 	cursor: pointer;
 }
 #msg{
-	border:1px solid #ccc ;
+	border:none;
 	outline: none;
-	box-shadow: none;
-	background-color: #FFF8D7
+	box-shadow: inset 0 0 5px #DAA520;
+	background-color:#FFF5EE;
 }
+
+/*-- 在线列表 --*/
 #users{
-	position: relative;
+	position: static;
 	height: 488px;
 	padding: 0;
+}
+.spacer{
+	display: block;
+	width: 120px;
+	height: 1px;
+	margin: 0 auto 10px;
+	background-color: #fff;
 }
 #users-slider{
 	display: none;
 	width: 30px;
 	height: 100px;
 	position: absolute;
-	background-color: #B8860B;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	background-color: #CC9933;
+	border-radius: 5px 0 0 5px;
 	top:50%;
 	margin-top: -80px;
 	left:-30px;
@@ -189,7 +197,7 @@ a {
 }
 #users-box{
 	height: 100%;
-	background-color: #B8860B ;
+	background-color: #CC9935;
 	color:#fff;
 }
 #users-box h4{
@@ -198,14 +206,14 @@ a {
 }
 #users-list{
 	overflow: scroll;
-	list-style-type: none;
 }
-@media screen and (max-width: 1000px){
+/*-- end 主界面 --*/
+/*-- end 界面 --*/
+
+/*-- 屏幕宽小于1000px--*/
+@media screen and (max-width: 1024px){
 	#screen{
 		width:100%;
-	}
-	#users-slider{
-		display: block;
 	}
 	#users{
 		position: absolute;
@@ -214,9 +222,8 @@ a {
 		width: 270px;
 		right:-270px;
 	}
-}
-@media screen and (min-width: 1024px){
-	#users{
-		position: static;
+	#users-slider{
+		display: block;
 	}
 }
+

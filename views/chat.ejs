@@ -7,8 +7,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <!-- 遮罩 -->
   	<div class="container-fluid" id="cover">
-
   		<div id="prompt">
   			<p>给自己起一个名字吧，长度<=10：</p>
         <form>
@@ -25,11 +25,13 @@
       <p class="nametips" id="namelong">这名字长度要上天...</p>
       </div>
   	</div>
+
+    <!--界面-->
     <div class="container-fluid" id="container">
     	<div class="row">
     		<div class="col-md-offset-2 col-md-8" id="chatroom">
 
-          <!--头部-->
+          <!-- 头部 -->
     			<div id="header"><h4 class="text-center" id="title">CHATROOM</h4></div>
          
           <div class="row" id="ground">
@@ -45,7 +47,7 @@
               <span id="users-slider">
                 在线列表
               </span>
-              <div id="users-box"><h4 class="text-center">Online List</h4>
+              <div id="users-box"><h4 class="text-center" id="users-title">Online List</h4>
                 <span class="spacer"></span>
                 <ul id="users-list">
                 </ul>
@@ -158,12 +160,11 @@
     					  <div class="input-group" id="iptgroup">
       						<input type="text" name="msg" id="msg" class="form-control">
       						<span class="input-group-btn">
-      						  <button type="submit" class="btn btn-default" id="sendBtn">GO</button>
+      						  <button type="submit" class="btn" id="sendBtn">GO</button>
       						</span>
     					   </div>
               </form>
             </div>
-
     			</div>
     				
 			  </div>
@@ -171,7 +172,6 @@
     </div>			
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/jquery.js"></script>
-    <script src="/javascripts/bootstrap.js"></script>
    	<script src="/javascripts/chat.js"></script>
     <script src="/javascripts/iconemoji.js"></script>
 

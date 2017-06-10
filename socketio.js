@@ -30,9 +30,6 @@ var users=[];
 		  	io.sockets.emit('sendSuccess',name,socket.name,msg);
 		  })
 
-
-			
-
 	});
 };  
   
