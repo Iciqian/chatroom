@@ -109,8 +109,12 @@ ul{
 	list-style-type: none;
 	overflow: scroll;
 }
+.msg-box{
+	margin-top: 15px;
+}
 .msg-title{
 	color:#aaa;
+	margin-top: 10px;
 }
 .msg-text{
 	word-wrap:break-word;

@@ -22,7 +22,7 @@ ChatRoom.prototype = {
 				e.preventDefault();
 				var name = $('#name').val();
 				name = $.trim(name);
-				if ($.trim(name) != ''&&name.length <= 10){
+				if ($.trim(name) != ''&&name.length <= 16){
 						that.socket.emit('login',name);				
 				}else{
 					$('#name').val('');
@@ -74,7 +74,7 @@ ChatRoom.prototype = {
 			if (type == 'login') {
 				var welcome = name + ' 已进入聊天室--当前在线人数:' + userCount;
 				$('#system').text(welcome).slideDown().delay(500).slideUp();
-				var list = '<li>'+name+'</li>'
+				var list = '<li><h4>'+name+'</h4></li>'
 				$('#users-list').append(list);
 			}else if(type == 'logout'){
 				if(name){
@@ -82,7 +82,7 @@ ChatRoom.prototype = {
 					$('#system').text(goodbye).slideDown().delay(500).slideUp();
 					var list = '';
 					$.each(users,function(i,n){
-						list += '<li>'+n+'</li>';
+						list += '<li><h4>'+n+'</h4></li>';
 				  });
 			  	$('#users-list').html(list);
 		  	}
@@ -152,7 +152,7 @@ ChatRoom.prototype = {
 		var time = new Date();
 		time = time.toTimeString().substr(0,8);
 		msg = this.showEmoji(msg);
-		var message = '<li><h5 class="msg-title">'+sendname+'('+time+')</h5><p class="msg-text">'+msg+'<p></li>';
+		var message = '<li class="msg-box"><h5 class="msg-title">'+sendname+'('+time+')</h5><p class="msg-text">'+msg+'<p></li>';
 		$('#msg-list').append(message);
 		if (sendname == myname) {
 			$('#msg').val('').focus();
