@@ -169,7 +169,7 @@ ChatRoom.prototype = {
 		var match,result = msg;
 		var reg = /\[emoji:\d+\]/g;
 		var emojiIndex;
-		var emojies =  $('.emoji-item');
+		var emojies =  $('#emoji-box .emoji-item');
 		var totalEmojiNum = emojies.length;
 		while (match = reg.exec(msg)){
 			emojiIndex = match[0].slice(7,-1);
