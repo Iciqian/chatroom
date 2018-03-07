@@ -127,10 +127,11 @@ ChatRoom.prototype = {
 		});
 		$('#emoji-box').on('click','.emoji-item',function(e){
 			var target = $(e.target);
-			var emoji = $('.emoji-item');
+			var emoji = $('#emoji-box .emoji-item');
 			for (var i = 0; i < emoji.length; i++) {
 				if (target[0] == emoji[i]) {
-					$('#msg')[0].value += '[emoji:'+i+']';
+					var _this = i;
+					$('#msg')[0].value += '[emoji:'+_this+']';
 					$('#msg').focus();
 				}
 			}
